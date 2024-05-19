@@ -1,0 +1,22 @@
+{% extends 'base.html' %}   
+   
+   
+{% block content %}   
+<h1 style="margin-top: 20px; margin-bottom: 10px;">Меню</h1>   
+<p style="margin-top: 10px; margin-bottom: 20px; text-align: center;">В меню заведения представлены как привычные классические кофейные напитки, так и фирменные рецепты кофейни.</p>
+   
+<div class="row">   
+    {% for coffee in coffee %}   
+    <div class="col" style="text-align: center;">   
+        <div class="card" style="width: 15rem;  margin-bottom: 20px; margin: 10px; display: inline-block;">   
+            <img src="{{coffee.image}}" class="card-img-top" ; >   
+            <div class="card-body">   
+              <h5 class="card-title">{{coffee.name}}</h5>   
+              <p class="card-text">${{coffee.prise}}</p>   
+              <a href="{% url 'cart:cart_detail'%}" class="btn btn-primary"  style = "background-color: rgb(121, 85, 72);">Add to Cart</a>   
+            </div>   
+          </div>        
+        </div>   
+      
+          {% endfor %}
+      {% endblock %}
